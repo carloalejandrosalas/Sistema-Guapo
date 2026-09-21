@@ -1,9 +1,9 @@
 
 package clases;
 
-import com.sun.glass.events.KeyEvent;
 import conectar.conectar;
 import java.awt.event.ItemEvent;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -1434,7 +1434,6 @@ public class registrar extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        controllerDesktopNotify1 = new nicon.notify.gui.desktopNotify.ControllerDesktopNotify();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         b2 = new javax.swing.JButton();
@@ -2204,7 +2203,7 @@ public class registrar extends javax.swing.JInternalFrame {
 
         char tecla;
         tecla=evt.getKeyChar();
-        if(!Character.isLetter(tecla)&&tecla!= KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACKSPACE){
+        if(!Character.isLetter(tecla)&&tecla!= KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE){
             evt.consume();
             getToolkit().beep();
 
@@ -2533,7 +2532,7 @@ public class registrar extends javax.swing.JInternalFrame {
     private javax.swing.JLabel checkm;
     private javax.swing.JLabel checkn;
     private javax.swing.JLabel checkt;
-    private nicon.notify.gui.desktopNotify.ControllerDesktopNotify controllerDesktopNotify1;
+    // private nicon.notify.gui.desktopNotify.ControllerDesktopNotify controllerDesktopNotify1;
     private javax.swing.JLabel errorc;
     private javax.swing.JLabel errore;
     private javax.swing.JLabel errorf;

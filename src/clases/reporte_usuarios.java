@@ -14,24 +14,17 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
 
 
 public class reporte_usuarios extends javax.swing.JInternalFrame {
- DefaultTableModel model;
+    JTextField calendario = new JTextField();
+
+    DefaultTableModel model;
  
     public reporte_usuarios() {
         initComponents();
@@ -76,10 +69,14 @@ public class reporte_usuarios extends javax.swing.JInternalFrame {
         }
         
         
-        String dia = Integer.toString(calendario.getCalendar().get(Calendar.DAY_OF_MONTH));
-        String mes = Integer.toString(calendario.getCalendar().get(Calendar.MONTH)+1);
-        String year = Integer.toString(calendario.getCalendar().get(Calendar.YEAR));
-      
+        //String dia = Integer.toString(calendario.getCalendar().get(Calendar.DAY_OF_MONTH));
+        //String mes = Integer.toString(calendario.getCalendar().get(Calendar.MONTH)+1);
+        //String year = Integer.toString(calendario.getCalendar().get(Calendar.YEAR));
+
+        String dia = "";
+        String mes = "";
+        String year = "";
+
         int MES;
         int DIA;
         MES = Integer.parseInt(mes);
@@ -546,7 +543,7 @@ switch(MES){
         btnbuscar = new javax.swing.JButton();
         t_fecha = new javax.swing.JTextField();
         c_mes = new javax.swing.JComboBox();
-        calendario = new com.toedter.calendar.JDateChooser();
+        //calendario = new com.toedter.calendar.JDateChooser();
         c_ciudad = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -610,7 +607,7 @@ switch(MES){
             }
         });
 
-        calendario.setDateFormatString("dd/MMMM/yyyy");
+        // calendario.setDateFormatString("dd/MMMM/yyyy");
         calendario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 calendarioMouseClicked(evt);
@@ -1048,25 +1045,7 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 
         lista.add(clientes);
     }
-        try {
-            JasperReport reporte= (JasperReport) JRLoader.loadObject("reportesclientes.jasper");
-            Map parametro = new HashMap();
-            
-           
-               
-            parametro.put("estado", c_estado.getSelectedItem());
-            parametro.put("ciudad",c_ciudad.getSelectedItem());
-            parametro.put("mes", c_mes.getSelectedItem());
-            parametro.put("fecha", t_fecha.getText());
-               
-                       
-           
-            
-            JasperPrint jprint= JasperFillManager.fillReport(reporte, parametro,new JRBeanCollectionDataSource(lista));
-            JasperViewer.viewReport(jprint,false);
-        } catch (JRException ex) {
-            Logger.getLogger(reporte_usuarios.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
     
     
 }//GEN-LAST:event_jButton2ActionPerformed
@@ -1168,7 +1147,6 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JComboBox c_ciudad;
     private javax.swing.JComboBox c_estado;
     private javax.swing.JComboBox c_mes;
-    private com.toedter.calendar.JDateChooser calendario;
     private javax.swing.ButtonGroup estadociudad;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
