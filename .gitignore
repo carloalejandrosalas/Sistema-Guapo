@@ -15,6 +15,9 @@ nbproject/private/
 # IDE files
 /.idea/
 /.vscode/
+.env
+.env.*
+!.env.example
 
 # macOS / Windows system files
 .DS_Store
